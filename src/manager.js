@@ -97,6 +97,10 @@ class TrackerManager {
   get perfPtr() {
     return this._perfPtr;
   }
+
+  get perf() {
+    return this.perfHelper;
+  }
 }
 
 
