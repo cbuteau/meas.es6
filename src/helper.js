@@ -49,15 +49,10 @@ class LsHelper  {
   }
 }
 
-function FindHelper(perfPtr) {
-  this.perfPtr = perfPtr;
-}
-
-FindHelper.prototype = {
+class FindHelper {
   constructor(perfPtr) {
-      this.perfPtr = perfPtr;
+    this.perfPtr = perfPtr;
   }
-
   _set(perfPtr) {
     this.perfPtr = perfPtr;
   }
@@ -113,5 +108,5 @@ export class PerfHelper {
     this.clearHelper._set(perfPtr);
     this.lsHelper._set(perfPtr);
     this.findHelper._set(perfPtr);
-  }  
+  }
 }

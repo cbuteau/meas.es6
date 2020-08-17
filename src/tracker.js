@@ -20,14 +20,16 @@ export class Tracker {
   endnmeas(name) {
     this.end();
     return this.meas();
-  },
+  }
+
   meas() {
     if (!this.hasMeasured) {
       this._perfPtr.measure(this.measName, this.startName, this.endName);
       this.hasMeasured = true;
     }
     return this._findmeas();
-  },
+  }
+
   _findmeas() {
     var measures = this._perfPtr.getEntriesByType(MEAS_TYPE);
     for (var i = 0; i < measures.length; i++) {

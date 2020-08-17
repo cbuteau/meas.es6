@@ -25,7 +25,7 @@ var isChrome = !!window.chrome && !!window.chrome.webstore;
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
 
-const BrowserFlags = {
+export const BrowserFlags = {
   isOpera: isOpera,
   isFirefox: isFirefox,
   isSafari: isSafari,
@@ -43,11 +43,9 @@ var isMac = (navigator.appVersion.indexOf("Mac")!=-1);
 var isLinux = (navigator.appVersion.indexOf("Linux")!=-1);
 var isUnix = (navigator.appVersion.indexOf("X11")!=-1);
 
-const OsFlags = {
+export const OsFlags = {
   isWin: isWin,
   isMac: isMac,
   isUnix: isUnix,
   isLinux: isLinux
 };
-
-export const {BrowserFlags, OsFlags};
