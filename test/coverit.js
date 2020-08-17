@@ -1,6 +1,10 @@
 import {meas} from '../src/manager.js';
 
 describe('Exercise API', function() {
+  beforeAll(function() {
+    meas.enable(true);
+  });
+
   it ('Perform specific measures', function() {
     meas.perf.clr.meas();
 

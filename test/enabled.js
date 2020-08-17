@@ -7,9 +7,9 @@ describe('Exercise API', function() {
     meas.enable(false);
   });
 
-  afterAll(function() {
-    meas.enable(true);
-  });
+  // afterAll(function() {
+  //   meas.enable(true);
+  // });
 
   it ('Run loop disabled', function() {
     meas.start('loop');

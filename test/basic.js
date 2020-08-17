@@ -1,7 +1,10 @@
 import {meas} from '../src/manager.js';
 
 describe('Exercise API', function() {
-
+  beforeAll(function() {
+    meas.enable(true);
+  });
+  
   it ('Run loop', function() {
     meas.start('loop');
 
