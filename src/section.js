@@ -16,6 +16,11 @@ export class TrackerSection {
 
     var prefixedName = this.trackerPrefix + '.' + trackerName;
 
+    if (this.trackers[trackerName]) {
+      // at least end the current before replacing.
+      this.trackers[trackerName].endnmeas();
+    }
+
     this.trackers[trackerName] = new Tracker(this.perfPtr, prefixedName, options);
   }
 
