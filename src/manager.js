@@ -3,10 +3,12 @@
 import {Tracker} from "./tracker.js"
 import {BrowserFlags, OsFlags} from "./flags.js"
 import {PerfHelper} from "./helper.js"
+import {TrackerSection} from "./section.js"
 
 class TrackerManager {
   constructor() {
     this.trackers = {};
+    this.sections = {};
     this.perfHelper = new PerfHelper(this.perfPtr);
     this.setPerfPtr(window.performance);
     this.enabled = true;
@@ -88,6 +90,21 @@ class TrackerManager {
     } finally {
       this.end(name);
     }
+  }
+
+  addOrGetSection(name) {
+    if (!this.enabled) {
+      return;
+    }
+    var check = this.sections[name];
+    if (check) {
+      return check;
+    } else {
+      var trackerPrefix = this.trackerPrefix + '.' + this.name;
+      check = this.sections[name] = new TrackerSection(this.perfPtr, name, trackerPrefix);
+    }
+
+    return check;
   }
 
   enable(enabled) {

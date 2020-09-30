@@ -3,8 +3,12 @@ import {meas} from '../src/manager.js';
 
 describe('Helper API', function() {
   beforeAll(function() {
-    meas.perf.clr.mark();
-    meas.perf.clr.meas();
+    return new Promise(function(resolve, reject) {
+      meas.perf.clr.mark();
+      meas.perf.clr.meas();
+
+      setTimeout(resolve, 200);
+    });
   });
 
   it ('Run loop', function() {
