@@ -4,7 +4,7 @@ describe('Exercise API', function() {
   beforeAll(function() {
     meas.enable(true);
   });
-  
+
   it ('Run loop', function() {
     meas.start('loop');
 
@@ -18,7 +18,7 @@ describe('Exercise API', function() {
       expect(data.duration).toBeLessThan(4.0);
 
     } else if (meas.BrowserFlags.isFirefox) {
-      expect(data.duration).toBeLessThan(5.1);
+      expect(data.duration).toBeLessThan(15.1);
 
     }
 

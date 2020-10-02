@@ -22,11 +22,14 @@ describe('Helper API', function() {
 
 
     var marks = meas.perf.ls.mark();
-    expect(marks.length).toBe(2);
+    if (!meas.BrowserFlags.isFirefox) {
+      expect(marks.length).toBe(2);      
+    }
 
     var meass = meas.perf.ls.meas();
-    expect(meass.length).toBe(1);
-
+    if (!meas.BrowserFlags.isFirefox) {
+      expect(meass.length).toBe(1);
+    }
   });
 
   it ('Now clear marks', function(done) {
