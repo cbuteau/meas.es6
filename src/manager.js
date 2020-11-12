@@ -107,6 +107,20 @@ class TrackerManager {
     return check;
   }
 
+  buildOrGetSection(sectionPath) {
+    let parts = sectionPath.split('.');
+    let section;
+    for (let i = 0; i < parts.length; i++) {
+      let part = parts[i];
+      if (i === 0) {
+        section = this.addOrGetSection(part);
+      } else {
+        section = section.addOrGetSection(part);
+      }
+    }
+    return section;
+  }
+
   enable(enabled) {
     this.enabled = enabled;
   }
