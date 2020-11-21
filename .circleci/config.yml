@@ -24,6 +24,8 @@ jobs:
       - run:
           name: run test
           command: npm run testc
+      - store_test_results:
+          path: results/test_results.xml
       - store_artifacts:
           path: coverage
       - save_cache:
