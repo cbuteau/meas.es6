@@ -1,3 +1,4 @@
+import {Tracker} from "./tracker.js"
 
 export class TrackerSection {
   constructor(perfPtr, name, trackerPrefix) {

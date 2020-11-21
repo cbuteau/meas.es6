@@ -2,9 +2,9 @@
   "name": "meas.es6",
   "version": "1.0.0",
   "description": "An ES6 helper library for the performance API.",
-  "main": "index.js",
+  "main": "src/manager.js",
   "scripts": {
-    "test": "karma start",
+    "test": "karma start --browsers Firefox",
     "testc": "karma start --single-run"
   },
   "repository": {

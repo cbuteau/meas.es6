@@ -4,8 +4,9 @@ const MEAS_TYPE = 'measure';
 const MARK_TYPE = 'mark';
 
 export class Tracker {
-  constructor(perPtr, name) {
+  constructor(perPtr, name, options) {
     this._perfPtr = perPtr;
+    this.options = options;
     this.startName = name + '_start';
     this.endName = name + '_end';
     this.measName = name + '_meas';
@@ -74,6 +75,15 @@ export class Tracker {
 
       var stddev = Math.sqrt(variance);
 
+      this.calculated = {
+        cnt: len,
+        min: min,
+        max: max,
+        avg: avg,
+        var: variance,
+        stddev: stddev
+      };
+
       var formatted = 'name=' + this.name + ' cnt=' + len + ' avg=' + avg + ' min=' + min + ' max=' + max + ' σ2=' + variance + ' σ=' + stddev;
       console.log(formatted);
     } else {
@@ -81,9 +91,16 @@ export class Tracker {
       if (len2 > 1) {
         console.warn('there are more than one entry...maybe you should do stats');
       }
-      var current = filtered[len2 - 1];
-      var formatted2 = 'name=' + this.name + ' value=' + current.duration;
-      console.log(formatted2);
+
+      if (len2) {
+        var current = filtered[len2 - 1];
+
+        this.calculated = {
+          duration: current.duration
+        };
+        var formatted2 = 'name=' + this.name + ' value=' + current.duration;
+        console.log(formatted2);
+      }
     }
   }
 }
